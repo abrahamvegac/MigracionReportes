@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<Reports>
+<!--
+///////////////////////////////////////////////////////
+//
+// VSReport Report Definition File
+//
+// This file contains the following reports:
+//
+//   1) cma_ttb_may_deu
+//
+///////////////////////////////////////////////////////
+-->
+
+  <!-- Report *** cma_ttb_may_deu *** -->
+  <Report>
+    <Name>cma_ttb_may_deu</Name>
+    <DataSource>
+      <ConnectionString></ConnectionString>
+      <RecordSource>SELECT
+      rut
+    , nom_deu
+    , deu_dir
+    , deu_indi
+    , deu_com
+    , total_deu
+    , pae
+    , garantia
+    , cup_disp
+    , fec_proc
+    , porc_ptri_min
+    , mto_patr_efec_min
+FROM
+    cma_ttb_may_deu 
+ORDER BY
+    total_deu DESC</RecordSource>
+    </DataSource>
+    <Layout>
+      <Width>14835</Width>
+      <MarginLeft>200</MarginLeft>
+      <MarginRight>200</MarginRight>
+      <Orientation>2</Orientation>
+      <PaperSize>1</PaperSize>
+    </Layout>
+    <Font>
+      <Name>Arial</Name>
+      <Size>9</Size>
+    </Font>
+    <Groups>
+    </Groups>
+    <Sections>
+      <Section>
+        <Name>Detail</Name>
+        <Height>300</Height>
+      </Section>
+      <Section>
+        <Name>Header</Name>
+        <Type>1</Type>
+      </Section>
+      <Section>
+        <Name>Footer</Name>
+        <Type>2</Type>
+        <Visible>0</Visible>
+      </Section>
+      <Section>
+        <Name>Page Header</Name>
+        <Type>3</Type>
+        <Height>3310</Height>
+      </Section>
+      <Section>
+        <Name>Page Footer</Name>
+        <Type>4</Type>
+        <Height>5</Height>
+      </Section>
+    </Sections>
+    <Fields>
+      <Field>
+        <Name>FooterLeft</Name>
+        <Section>3</Section>
+        <Text>Now()</Text>
+        <Calculated>-1</Calculated>
+        <Left>12030</Left>
+        <Top>900</Top>
+        <Width>735</Width>
+        <Height>225</Height>
+        <Align>2</Align>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>6,75</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>FooterRight</Name>
+        <Section>3</Section>
+        <Text>[Page] &amp; " de " &amp; [Pages]</Text>
+        <Calculated>-1</Calculated>
+        <Left>12060</Left>
+        <Top>1125</Top>
+        <Width>1605</Width>
+        <Height>225</Height>
+        <Align>0</Align>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>6,75</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>cup_dispLbl</Name>
+        <Section>3</Section>
+        <Text>CUPO DISPONIBLE GRAL</Text>
+        <Left>12720</Left>
+        <Top>2725</Top>
+        <Width>1440</Width>
+        <Height>585</Height>
+        <Align>1</Align>
+        <BorderStyle>1</BorderStyle>
+        <LineWidth>50</LineWidth>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>deu_comLbl</Name>
+        <Section>3</Section>
+        <Text>DEUDA COMPLEMENTARIA</Text>
+        <Left>6960</Left>
+        <Top>2725</Top>
+        <Width>1440</Width>
+        <Height>585</Height>
+        <Align>1</Align>
+        <BorderStyle>1</BorderStyle>
+        <LineWidth>50</LineWidth>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>deu_dirLbl</Name>
+        <Section>3</Section>
+        <Text>DEUDA DIRECTA</Text>
+        <Left>4080</Left>
+        <Top>2725</Top>
+        <Width>1440</Width>
+        <Height>585</Height>
+        <Align>1</Align>
+        <BorderStyle>1</BorderStyle>
+        <LineWidth>50</LineWidth>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>deu_indiLbl</Name>
+        <Section>3</Section>
+        <Text>DEUDA INDIRECTA</Text>
+        <Left>5520</Left>
+        <Top>2725</Top>
+        <Width>1440</Width>
+        <Height>585</Height>
+        <Align>1</Align>
+        <BorderStyle>1</BorderStyle>
+        <LineWidth>50</LineWidth>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>garantiaLbl</Name>
+        <Section>3</Section>
+        <Text>GARANTIA</Text>
+        <Left>11280</Left>
+        <Top>2725</Top>
+        <Width>1440</Width>
+        <Height>585</Height>
+        <Align>1</Align>
+        <BorderStyle>1</BorderStyle>
+        <LineWidth>50</LineWidth>
+        <WordWrap>0</WordWrap>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>nom_deuLbl</Name>
+        <Section>3</Section>
+        <Text>DEUDOR</Text>
+        <Left>765</Left>
+        <Top>2725</Top>
+        <Width>2010</Width>
+        <Height>585</Height>
+        <Align>1</Align>
+        <BorderStyle>1</BorderStyle>
+        <LineWidth>50</LineWidth>
+        <WordWrap>0</WordWrap>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>paeLbl</Name>
+        <Section>3</Section>
+        <Text>PAE</Text>
+        <Left>9840</Left>
+        <Top>2725</Top>
+        <Width>1440</Width>
+        <Height>585</Height>
+        <Align>1</Align>
+        <BorderStyle>1</BorderStyle>
+        <LineWidth>50</LineWidth>
+        <WordWrap>0</WordWrap>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>rutLbl</Name>
+        <Section>3</Section>
+        <Text>RUT</Text>
+        <Left>2775</Left>
+        <Top>2725</Top>
+        <Width>1305</Width>
+        <Height>585</Height>
+        <Align>1</Align>
+        <BorderStyle>1</BorderStyle>
+        <LineWidth>50</LineWidth>
+        <WordWrap>0</WordWrap>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>total_deuLbl</Name>
+        <Section>3</Section>
+        <Text>DEUDA TOTAL</Text>
+        <Left>8400</Left>
+        <Top>2725</Top>
+        <Width>1440</Width>
+        <Height>585</Height>
+        <Align>1</Align>
+        <BorderStyle>1</BorderStyle>
+        <LineWidth>50</LineWidth>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>cup_dispCtl</Name>
+        <Section>0</Section>
+        <Text>cup_disp</Text>
+        <Calculated>-1</Calculated>
+        <Format>#,###</Format>
+        <Left>12720</Left>
+        <Width>1440</Width>
+        <Height>300</Height>
+        <Align>2</Align>
+        <BorderStyle>1</BorderStyle>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>6,75</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>deu_comCtl</Name>
+        <Section>0</Section>
+        <Text>deu_com</Text>
+        <Calculated>-1</Calculated>
+        <Format>#,###</Format>
+        <Left>6960</Left>
+        <Width>1440</Width>
+        <Height>300</Height>
+        <Align>2</Align>
+        <BorderStyle>1</BorderStyle>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>6,75</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>deu_dirCtl</Name>
+        <Section>0</Section>
+        <Text>deu_dir</Text>
+        <Calculated>-1</Calculated>
+        <Format>#,###</Format>
+        <Left>4080</Left>
+        <Width>1440</Width>
+        <Height>300</Height>
+        <Align>2</Align>
+        <BorderStyle>1</BorderStyle>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>6,75</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>deu_indiCtl</Name>
+        <Section>0</Section>
+        <Text>deu_indi</Text>
+        <Calculated>-1</Calculated>
+        <Format>#,###</Format>
+        <Left>5520</Left>
+        <Width>1440</Width>
+        <Height>300</Height>
+        <Align>2</Align>
+        <BorderStyle>1</BorderStyle>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>6,75</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>garantiaCtl</Name>
+        <Section>0</Section>
+        <Text>garantia</Text>
+        <Calculated>-1</Calculated>
+        <Format>#,###</Format>
+        <Left>11280</Left>
+        <Width>1440</Width>
+        <Height>300</Height>
+        <Align>2</Align>
+        <BorderStyle>1</BorderStyle>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>6,75</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>nom_deuCtl</Name>
+        <Section>0</Section>
+        <Text>nom_deu</Text>
+        <Calculated>-1</Calculated>
+        <Left>765</Left>
+        <Width>2010</Width>
+        <Height>300</Height>
+        <Align>0</Align>
+        <BorderStyle>1</BorderStyle>
+        <WordWrap>0</WordWrap>
+        <CanGrow>-1</CanGrow>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>6,75</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>paeCtl</Name>
+        <Section>0</Section>
+        <Text>pae</Text>
+        <Calculated>-1</Calculated>
+        <Format>#,###</Format>
+        <Left>9840</Left>
+        <Width>1440</Width>
+        <Height>300</Height>
+        <Align>2</Align>
+        <BorderStyle>1</BorderStyle>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>6,75</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>rutCtl</Name>
+        <Section>0</Section>
+        <Text>rut</Text>
+        <Calculated>-1</Calculated>
+        <Left>2775</Left>
+        <Width>1305</Width>
+        <Height>300</Height>
+        <Align>1</Align>
+        <BorderStyle>1</BorderStyle>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>6,75</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>total_deuCtl</Name>
+        <Section>0</Section>
+        <Text>total_deu</Text>
+        <Calculated>-1</Calculated>
+        <Format>#,###</Format>
+        <Left>8400</Left>
+        <Width>1440</Width>
+        <Height>300</Height>
+        <Align>2</Align>
+        <BorderStyle>1</BorderStyle>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>6,75</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Label</Name>
+        <Section>3</Section>
+        <Text>MAYORES DEUDORES</Text>
+        <Left>600</Left>
+        <Top>690</Top>
+        <Width>13095</Width>
+        <Height>300</Height>
+        <Align>7</Align>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>11,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Label1</Name>
+        <Section>3</Section>
+        <Text>DEUDAS REFERIDAS AL</Text>
+        <Left>600</Left>
+        <Top>975</Top>
+        <Width>13095</Width>
+        <Height>300</Height>
+        <Align>7</Align>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>11,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>DataField</Name>
+        <Section>3</Section>
+        <Text>fec_proc</Text>
+        <Calculated>-1</Calculated>
+        <Left>8460</Left>
+        <Top>975</Top>
+        <Width>1875</Width>
+        <Height>285</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>11,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Label2</Name>
+        <Section>3</Section>
+        <Text>CIFRAS EN $</Text>
+        <Left>600</Left>
+        <Top>1260</Top>
+        <Width>13095</Width>
+        <Height>285</Height>
+        <Align>7</Align>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>11,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Label3</Name>
+        <Section>3</Section>
+        <Text>CONTROL DE CREDITO</Text>
+        <Left>150</Left>
+        <Top>1260</Top>
+        <Width>2985</Width>
+        <Height>300</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>11,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Label4</Name>
+        <Section>3</Section>
+        <Text>PATRIMONIO EFECTIVO:</Text>
+        <Left>150</Left>
+        <Top>2010</Top>
+        <Width>2145</Width>
+        <Height>285</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>DataField1</Name>
+        <Section>3</Section>
+        <Text>porc_ptri_min</Text>
+        <Calculated>-1</Calculated>
+        <Format>#,###.##</Format>
+        <Left>2190</Left>
+        <Top>2010</Top>
+        <Width>690</Width>
+        <Height>285</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Label5</Name>
+        <Section>3</Section>
+        <Text>%</Text>
+        <Left>2925</Left>
+        <Top>2010</Top>
+        <Width>150</Width>
+        <Height>285</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>DataField2</Name>
+        <Section>3</Section>
+        <Text>mto_patr_efec_min</Text>
+        <Calculated>-1</Calculated>
+        <Format>#,###</Format>
+        <Left>3090</Left>
+        <Top>2010</Top>
+        <Width>1305</Width>
+        <Height>285</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Calculated Field</Name>
+        <Section>3</Section>
+        <Text>porc_ptri_min * 2</Text>
+        <Calculated>-1</Calculated>
+        <Format>#,###.##</Format>
+        <Left>4620</Left>
+        <Top>2010</Top>
+        <Width>690</Width>
+        <Height>285</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>DataField3</Name>
+        <Section>3</Section>
+        <Text>mto_patr_efec_min *2</Text>
+        <Calculated>-1</Calculated>
+        <Format>#,###</Format>
+        <Left>5490</Left>
+        <Top>2010</Top>
+        <Width>1305</Width>
+        <Height>285</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>DataField4</Name>
+        <Section>3</Section>
+        <Text>porc_ptri_min *3</Text>
+        <Calculated>-1</Calculated>
+        <Format>#,###.##</Format>
+        <Left>6945</Left>
+        <Top>2010</Top>
+        <Width>690</Width>
+        <Height>285</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>DataField5</Name>
+        <Section>3</Section>
+        <Text>porc_ptri_min * 4</Text>
+        <Calculated>-1</Calculated>
+        <Format>#,###.##</Format>
+        <Left>2190</Left>
+        <Top>2325</Top>
+        <Width>690</Width>
+        <Height>285</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>DataField6</Name>
+        <Section>3</Section>
+        <Text>porc_ptri_min * 5</Text>
+        <Calculated>-1</Calculated>
+        <Format>#,###.##</Format>
+        <Left>4605</Left>
+        <Top>2325</Top>
+        <Width>690</Width>
+        <Height>285</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>DataField7</Name>
+        <Section>3</Section>
+        <Text>mto_patr_efec_min * 3</Text>
+        <Calculated>-1</Calculated>
+        <Format>#,###</Format>
+        <Left>7785</Left>
+        <Top>2010</Top>
+        <Width>1305</Width>
+        <Height>285</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>DataField8</Name>
+        <Section>3</Section>
+        <Text>mto_patr_efec_min * 4</Text>
+        <Calculated>-1</Calculated>
+        <Format>#,###</Format>
+        <Left>3060</Left>
+        <Top>2325</Top>
+        <Width>1305</Width>
+        <Height>285</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>DataField9</Name>
+        <Section>3</Section>
+        <Text>mto_patr_efec_min * 5</Text>
+        <Calculated>-1</Calculated>
+        <Format>#,###</Format>
+        <Left>5445</Left>
+        <Top>2325</Top>
+        <Width>1380</Width>
+        <Height>285</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Label6</Name>
+        <Section>3</Section>
+        <Text>%</Text>
+        <Left>5325</Left>
+        <Top>2010</Top>
+        <Width>225</Width>
+        <Height>285</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Label7</Name>
+        <Section>3</Section>
+        <Text>%</Text>
+        <Left>7665</Left>
+        <Top>2010</Top>
+        <Width>150</Width>
+        <Height>285</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Label8</Name>
+        <Section>3</Section>
+        <Text>%</Text>
+        <Left>2925</Left>
+        <Top>2325</Top>
+        <Width>150</Width>
+        <Height>285</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Label9</Name>
+        <Section>3</Section>
+        <Text>%</Text>
+        <Left>5310</Left>
+        <Top>2325</Top>
+        <Width>225</Width>
+        <Height>285</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>8,25</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Label10</Name>
+        <Section>3</Section>
+        <Text>Fecha:</Text>
+        <Left>11460</Left>
+        <Top>900</Top>
+        <Width>540</Width>
+        <Height>225</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>6,75</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Label11</Name>
+        <Section>3</Section>
+        <Text>Pagina</Text>
+        <Left>11460</Left>
+        <Top>1110</Top>
+        <Width>615</Width>
+        <Height>210</Height>
+        <Font>
+          <Name>Trebuchet MS</Name>
+          <Size>6,75</Size>
+          <Bold>-1</Bold>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Picture</Name>
+        <Section>3</Section>
+        <Left>630</Left>
+        <Top>60</Top>
+        <Width>1005</Width>
+        <Height>1155</Height>
+        <Picture>logo.jpg</Picture>
+        <PictureAlign>9</PictureAlign>
+      </Field>
+    </Fields>
+  </Report>
+</Reports>
