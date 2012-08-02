@@ -472,6 +472,15 @@ Public Sub InicioReportes()
                 vgNombreArchivoPDF = "MayoresDeudores"
                 Call Rpt_cma_ttb_may_deu
                 
+            Case "cma_ttb_det_ope_cli"
+                vgNombreArchivoPDF = "cma_ttb_det_ope_cli"
+                Call Rpt_cma_ttb_det_ope_cli
+                        
+            Case "CuposCredMargenArt84"
+                vgNombreArchivoPDF = "CuposCredMargenArt84"
+                Call Rpt_CuposCredMargenArt84
+                
+                
             'CASE "xxxxxxxxxxxxxxxxxxxxxx"
             'CALL  xxxxxxxxxxxxxxxxxxxxxx
                 
@@ -598,6 +607,68 @@ Error:
 
 End Sub
 
+
+Private Sub Rpt_CuposCredMargenArt84()
+
+On Error GoTo ErrorSQLRpt
+
+    If MtdConexionBD(m_miConectrionString) < 0 Then
+        Call MsgBox("Error en la conexion con la base de datos", vbCritical, "Aviso Sistema")
+        Exit Sub
+    End If
+
+    DoEvents
+    lblAviso.Caption = vgMensaje & vbCrLf & "Por Favor Espere."
+    VSReport.Load m_rutaExe & "\" & m_reporteGenerar & ".xml", m_reporteGenerar
+    g_servicio = VSReport.DataSource.GetRecordSource(True)
+    If MtdDispacherSQL(g_servicio) < 0 Then
+        Call MsgBox("Error en la conexion con la base de datos", vbCritical, "Aviso Sistema")
+        Exit Sub
+    End If
+    
+    VSReport.Fields("tit_inf").Text = m_Parametros(0)
+    
+    VSReport.DataSource.Recordset = vgSybRecordst
+
+    VSReport.Render vp
+
+    If VSReport.IsBusy Then Exit Sub
+
+    If m_Exportar Then
+        VSReport.RenderToFile comDial.FileName, vsrPDF
+        Call MsgBox("Archivo PDF generado en forma satisfactoria.", vbInformation, "Aviso Sistema")
+    End If
+      
+    'Cerrar la conexion
+    vgSybRecordst.Close
+    vgSybConexion.Close
+    Set vgSybRecordst = Nothing
+    Set vgSybConexion = Nothing
+
+
+ErrorSQLRpt:
+
+   If Err.Number <> 0 Then '-------------------------------------------------------------
+        If Err.Number <> 3146 Then
+            Screen.MousePointer = Default
+            Call crearrLOGML(g_servicio & " -/*/- [" & Err.Number & "]" & Err.Description & " -/*/- " & " (Control de usuario :: ucxReporte)= Rpt_CuposCredMargenArt84 ", 1)
+            Screen.MousePointer = Default
+        Else
+            Dim contador As Integer
+            For contador = 0 To DBEngine.Errors.Count - 1
+                If DBEngine.Errors(contador).Number <> 3146 Then
+                    Call crearrLOGML(g_servicio & " -/*/- [" & DBEngine.Errors(contador).Number & "]" & DBEngine.Errors(contador).Description & " -/*/- " & " (Control de usuario :: ucxReporte)= Rpt_CuposCredMargenArt84  ", 1)
+                End If
+            Next contador
+            Screen.MousePointer = Default
+        End If
+    End If '----------------------------------------------------------------------------
+
+
+End Sub
+
+
+
 Private Sub Rpt_cma_ttb_may_deu()
 
 On Error GoTo Error
@@ -654,6 +725,63 @@ Error:
 
 End Sub
 
+
+Private Sub Rpt_cma_ttb_det_ope_cli()
+
+On Error GoTo Error
+
+    If MtdConexionBD(m_miConectrionString) < 0 Then
+        Call MsgBox("Error en la conexion con la base de datos", vbCritical, "Aviso Sistema")
+        Exit Sub
+    End If
+
+    DoEvents
+    lblAviso.Caption = vgMensaje & vbCrLf & "Por Favor Espere."
+    VSReport.Load m_rutaExe & "\" & m_reporteGenerar & ".xml", m_reporteGenerar
+    g_servicio = VSReport.DataSource.GetRecordSource(True)
+    If MtdDispacherSQL(g_servicio) < 0 Then
+        Call MsgBox("Error en la conexion con la base de datos", vbCritical, "Aviso Sistema")
+        Exit Sub
+    End If
+    
+    VSReport.DataSource.Recordset = vgSybRecordst
+
+    VSReport.Render vp
+
+    If VSReport.IsBusy Then Exit Sub
+
+    If m_Exportar Then
+        VSReport.RenderToFile comDial.FileName, vsrPDF
+        Call MsgBox("Archivo PDF generado en forma satisfactoria.", vbInformation, "Aviso Sistema")
+    End If
+      
+    'Cerrar la conexion
+    vgSybRecordst.Close
+    vgSybConexion.Close
+    Set vgSybRecordst = Nothing
+    Set vgSybConexion = Nothing
+
+
+Error:
+   If Err.Number <> 0 Then '-------------------------------------------------------------
+        If Err.Number <> 3146 Then
+            Screen.MousePointer = Default
+            Call crearrLOGML(g_servicio & " -/*/- [" & Err.Number & "]" & Err.Description & " -/*/- " & " (Control de usuario :: ucxReporte)= Rpt_cma_ttb_det_ope_cli ", 1)
+            Screen.MousePointer = Default
+        Else
+            Dim contador As Integer
+            For contador = 0 To DBEngine.Errors.Count - 1
+                If DBEngine.Errors(contador).Number <> 3146 Then
+                    Call crearrLOGML(g_servicio & " -/*/- [" & DBEngine.Errors(contador).Number & "]" & DBEngine.Errors(contador).Description & " -/*/- " & " (Control de usuario :: ucxReporte)= Rpt_cma_ttb_det_ope_cli  ", 1)
+                End If
+            Next contador
+            Screen.MousePointer = Default
+        End If
+    End If '----------------------------------------------------------------------------
+
+
+
+End Sub
 
 ''' -----------------------------------------------------------------------------------------------------------------------------
 ''' -----------------------------------------------------------------------------------------------------------------------------
